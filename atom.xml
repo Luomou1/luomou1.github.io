@@ -6,7 +6,7 @@
   <link href="https://xiaoluoxiaorao.top/atom.xml" rel="self"/>
   
   <link href="https://xiaoluoxiaorao.top/"/>
-  <updated>2022-04-04T15:38:09.623Z</updated>
+  <updated>2022-04-06T15:34:54.761Z</updated>
   <id>https://xiaoluoxiaorao.top/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>failure</title>
+    <link href="https://xiaoluoxiaorao.top/2022/04/06/failure/"/>
+    <id>https://xiaoluoxiaorao.top/2022/04/06/failure/</id>
+    <published>2022-04-06T15:30:32.000Z</published>
+    <updated>2022-04-06T15:34:54.761Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="2022——04-06-一次失败经历"><a href="#2022——04-06-一次失败经历" class="headerlink" title="2022——04-06 一次失败经历"></a>2022——04-06 一次失败经历</h1><p>准备把博客部署到<code>coding.net</code>和<code>gitee</code>上提高访问速度，最后发现<code>coding</code>上绑定域名要备案而且好像要收费，<code>gitee</code>上不再提供自定义域名  哭啊😭！！</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;2022——04-06-一次失败经历&quot;&gt;&lt;a href=&quot;#2022——04-06-一次失败经历&quot; class=&quot;headerlink&quot; title=&quot;2022——04-06 一次失败经历&quot;&gt;&lt;/a&gt;2022——04-06 一次失败经历&lt;/h1&gt;&lt;p&gt;准备把博客部</summary>
+      
+    
+    
+    
+    
+    <category term="失败" scheme="https://xiaoluoxiaorao.top/tags/%E5%A4%B1%E8%B4%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo添加valine评论系统 (yilia主题)</title>
