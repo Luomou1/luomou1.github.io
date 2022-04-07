@@ -160,6 +160,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vercel" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        <!--显示阅读次数-->
+        
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/04/07/vercel/">hexo部署到vercel提升访问速度</a>
+    </h1>
+  
+
+        
+        <a href="/2022/04/07/vercel/" class="archive-article-date">
+  	<time datetime="2022-04-07T10:39:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-04-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="通过vercel提升hexo访问速度"><a href="#通过vercel提升hexo访问速度" class="headerlink" title="通过vercel提升hexo访问速度"></a>通过<code>vercel</code>提升<code>hexo</code>访问速度</h1><p>继昨日想通过<code>coding</code>和<code>gitee</code>提高<code>hexo</code>访问速度失败后，还是觉得意难平，遂在网上继续找教程，最后发现部署到<code>vercel</code>上是个不错的选择，还可以通过<code>https</code>访问，最后结果来看确实速度快了不少。</p>
+<h2 id="步骤如下"><a href="#步骤如下" class="headerlink" title="步骤如下"></a>步骤如下</h2><blockquote>
+<p>搭建hexo的具体教程就不再多说了，可参见<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">hexo</a>,我是在github pages上托管我的博客的</p>
+</blockquote>
+<ol>
+<li>访问并登录<a target="_blank" rel="noopener" href="https://vercel.com/">vercel</a>官网, 使用github登陆<br><img src="https://s2.loli.net/2022/04/07/dOUv8blZstJ9npV.jpg" alt="Xnip2022-04-07_18-57-41.jpg"></li>
+</ol>
+        
+          <a class="article-more-a" href="/2022/04/07/vercel/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo优化</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/04/07/vercel/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-failure" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -196,7 +280,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">失败</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hexo优化</a>
         		</li>
       		
 		</ul>
@@ -261,33 +345,9 @@
         <blockquote>
 <p>最近搭建了hexo个人博客，想着添加一个评论系统，yilia主题的配置文件里有1、畅言；2、Disqus；3、Gitment；4、Giteement；5、网易云跟帖这几个评论系统。刚开始选择了gitment，找资料发现这个早就不更新了。然后选择了gitalk，配置过程中出现各种各样的问题，最终还是选择了配置比较简单valine。</p>
 </blockquote>
-<h3 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h3><h4 id="一-创建应用"><a href="#一-创建应用" class="headerlink" title="一.创建应用"></a>一.创建应用</h4><p>1.进入<a target="_blank" rel="noopener" href="https://www.leancloud.cn/">Leancloud</a>注册账号</p>
-<p>2.进入控制台</p>
-<p>3.创建应用，名称随意，应用方案建议选择开发版</p>
-<p><img src="https://s2.loli.net/2022/04/04/p23ShOQJRij8o7Y.jpg" alt="创建应用"></p>
-<p>4.在控制台找到设置-应用凭证下的AppId和AppKey</p>
-<p><img src="https://s2.loli.net/2022/04/04/xBLv8OVgSbARKq4.jpg" alt="AppId和AppKey"></p>
-<p>5.最后还可以在设置-安全中心-Web安全域名下输入你的博客地址。</p>
-<p><img src="https://s2.loli.net/2022/04/04/lxXI4yLjbUarACO.jpg" alt="安全域名"></p>
-<blockquote>
-<p>还可以通过部署云引擎用于邮件通知，不过我没有用到，就不再多说啦。</p>
-</blockquote>
-<h4 id="二-yilia下的配置文件"><a href="#二-yilia下的配置文件" class="headerlink" title="二.yilia下的配置文件"></a>二.yilia下的配置文件</h4><p>1._config.xml<br>在<code>themes/yilia/_config.yml</code>文件中添加以下代码，可在gitment后添加</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#6、Valine https://valine.js.org</span></span><br><span class="line"><span class="attr">valine:</span> </span><br><span class="line"> <span class="attr">appid:</span>  <span class="comment">#Leancloud应用的appId</span></span><br><span class="line"> <span class="attr">appkey:</span>  <span class="comment">#Leancloud应用的appKey</span></span><br><span class="line"> <span class="attr">verify:</span> <span class="literal">false</span> <span class="comment">#验证码</span></span><br><span class="line"> <span class="attr">notify:</span> <span class="literal">false</span> <span class="comment">#评论回复提醒</span></span><br><span class="line"> <span class="attr">avatar:</span> <span class="string">mm</span> <span class="comment">#评论列表头像样式：&#x27;&#x27;/mm/identicon/monsterid/wavatar/retro/hide</span></span><br><span class="line"> <span class="attr">placeholder:</span> <span class="string">Just</span> <span class="string">go</span> <span class="string">go</span> <span class="comment">#评论框占位符</span></span><br></pre></td></tr></table></figure>
-
-<p> 2.article.ejs<br> 在<code>themes/yilia/layout/_partial/article.ejs</code>文件中添加如下代码<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey)&#123; %&gt;</span><br><span class="line">  &lt;section id=&quot;comments&quot; style=&quot;margin:10px;padding:10px;background:#fff;&quot;&gt;</span><br><span class="line">    &lt;%- partial(&#x27;post/valine&#x27;, &#123;</span><br><span class="line">      key: post.slug,</span><br><span class="line">      title: post.title,</span><br><span class="line">      url: config.url+url_for(post.path)</span><br><span class="line">      &#125;) %&gt;</span><br><span class="line">  &lt;/section&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p><em>也可以通过以下代码改成相应式布局，实现宽度与文章自动对齐</em></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.valine &amp;&amp; theme.valine.appid &amp;&amp; theme.valine.appkey)&#123; %&gt;</span><br><span class="line">   &lt;section id=&quot;comments&quot; class=&quot;comments&quot;&gt;</span><br><span class="line">     &lt;style&gt;</span><br><span class="line">       .comments&#123;margin:30px;padding:10px;background:#fff&#125;</span><br><span class="line">       @media screen and (max-width:800px)&#123;.comments&#123;margin:auto;padding:10px;background:#fff&#125;&#125;</span><br><span class="line">     &lt;/style&gt;</span><br><span class="line">     &lt;%- partial(&#x27;post/valine&#x27;, &#123;</span><br><span class="line">       key: post.slug,</span><br><span class="line">       title: post.title,</span><br><span class="line">       url: config.url+url_for(post.path)</span><br><span class="line">       &#125;) %&gt;</span><br><span class="line"> &lt;/section&gt;</span><br><span class="line">&gt;&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>3.valine.ejs<br>在路径<code>themes/yilia/layout/_partial/post/</code>下创建新文件valine.ejs</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=&quot;vcomment&quot; class=&quot;comment&quot;&gt;&lt;/div&gt; </span><br><span class="line">&lt;script src=&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;//unpkg.com/valine/dist/Valine.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">   var notify = &#x27;&lt;%= theme.valine.notify %&gt;&#x27; == true ? true : false;</span><br><span class="line">   var verify = &#x27;&lt;%= theme.valine.verify %&gt;&#x27; == true ? true : false;</span><br><span class="line">    window.onload = function() &#123;</span><br><span class="line">        new Valine(&#123;</span><br><span class="line">            el: &#x27;.comment&#x27;,</span><br><span class="line">            notify: notify,</span><br><span class="line">            verify: verify,</span><br><span class="line">            app_id: &quot;&lt;%= theme.valine.appid %&gt;&quot;,</span><br><span class="line">            app_key: &quot;&lt;%= theme.valine.appkey %&gt;&quot;,</span><br><span class="line">            placeholder: &quot;&lt;%= theme.valine.placeholder %&gt;&quot;,</span><br><span class="line">            avatar:&quot;&lt;%= theme.valine.avatar %&gt;&quot;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>4.最后部署一下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="三-到此整个评论系统创建完成啦，看一下结果！如果遇到一些问题还可以参见yilia增加valine"><a href="#三-到此整个评论系统创建完成啦，看一下结果！如果遇到一些问题还可以参见yilia增加valine" class="headerlink" title="三.到此整个评论系统创建完成啦，看一下结果！如果遇到一些问题还可以参见yilia增加valine"></a>三.到此整个评论系统创建完成啦，看一下结果！如果遇到一些问题还可以参见<a target="_blank" rel="noopener" href="https://github.com/litten/hexo-theme-yilia">yilia增加valine</a></h4><p><img src="https://s2.loli.net/2022/04/04/6asQ5kjG7xMfeCq.jpg" alt="结果展示"></p>
-
+        
+          <a class="article-more-a" href="/2022/04/04/valine/#more">more >></a>
+        
       
 
       
@@ -677,7 +737,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">失败</a>
+                <a href="javascript:void(0)" class="js-tag color2">hexo优化</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -686,10 +746,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">markdown语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">hexo优化</a>
               </li>
             
             <div class="clearfix"></div>
