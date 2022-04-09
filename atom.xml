@@ -6,7 +6,7 @@
   <link href="https://www.xiaoluoxiaorao.top/atom.xml" rel="self"/>
   
   <link href="https://www.xiaoluoxiaorao.top/"/>
-  <updated>2022-04-09T11:18:34.653Z</updated>
+  <updated>2022-04-08T08:40:10.397Z</updated>
   <id>https://www.xiaoluoxiaorao.top/</id>
   
   <author>
@@ -15,52 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>mathjax2</title>
-    <link href="https://www.xiaoluoxiaorao.top/2022/04/09/mathjax2/"/>
-    <id>https://www.xiaoluoxiaorao.top/2022/04/09/mathjax2/</id>
-    <published>2022-04-09T11:17:08.000Z</published>
-    <updated>2022-04-09T11:18:34.653Z</updated>
-    
-    <content type="html"><![CDATA[<p>$x^2+3x-2&#x3D;0$<br>$$x^2+3x-2&#x3D;0$$<br>$\dfrac ab*c$<br>$\left ( \frac {a^2}b \right )$</p><p>$$\begin{matrix}<br>1&amp;2&amp;3\ %元素之间用&amp;分割，行之间用\分割。<br>4&amp;5&amp;6<br>\end{matrix}$$ </p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;$x^2+3x-2&amp;#x3D;0$&lt;br&gt;$$x^2+3x-2&amp;#x3D;0$$&lt;br&gt;$\dfrac ab*c$&lt;br&gt;$\left ( \frac {a^2}b \right )$&lt;/p&gt;
-&lt;p&gt;$$\begin{matrix}&lt;br&gt;1&amp;amp;2&amp;amp;3\ %元</summary>
-      
-    
-    
-    
-    
-    <category term="test" scheme="https://www.xiaoluoxiaorao.top/tags/test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mathjax</title>
-    <link href="https://www.xiaoluoxiaorao.top/2022/04/09/mathjax/"/>
-    <id>https://www.xiaoluoxiaorao.top/2022/04/09/mathjax/</id>
-    <published>2022-04-09T11:15:03.000Z</published>
-    <updated>2022-04-09T11:18:32.521Z</updated>
-    
-    <content type="html"><![CDATA[<p>$x^2+3x-2&#x3D;0$<br>$$x^2+3x-2&#x3D;0$$<br>$\dfrac ab*c$<br>$\left ( \frac {a^2}b \right )$</p><p>$$\begin{matrix}<br>1&amp;2&amp;3\ %元素之间用&amp;分割，行之间用\分割。<br>4&amp;5&amp;6<br>\end{matrix}$$ </p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;$x^2+3x-2&amp;#x3D;0$&lt;br&gt;$$x^2+3x-2&amp;#x3D;0$$&lt;br&gt;$\dfrac ab*c$&lt;br&gt;$\left ( \frac {a^2}b \right )$&lt;/p&gt;
-&lt;p&gt;$$\begin{matrix}&lt;br&gt;1&amp;amp;2&amp;amp;3\ %元</summary>
-      
-    
-    
-    
-    
-    <category term="test" scheme="https://www.xiaoluoxiaorao.top/tags/test/"/>
-    
-  </entry>
   
   <entry>
     <title>hexo部署到vercel提升访问速度</title>
