@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="https://www.xiaoluoxiaorao.top">
   <title>基础算法 | 学习记录</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基础算法排序一. 快速排序–基于分治1.确定分界点 l~r区间随便取一个值x2.调整区间（把整个区间分成左右两段，左边小于等于x，右边大于等于x，x的位置不固定）3.递归处理左右两段  暴力做法：取两个数组   优美做法：取两个指针  1234567891011121314void quick_sort(int q[], int l, int r)&amp;#123;    if(l &gt;&#x3D; r) r">
+  <meta name="description" content="基础算法排序一. 快速排序–基于分治  确定分界点 l~r区间随便取一个值x 调整区间（把整个区间分成左右两段，左边小于等于x，右边大于等于x，x的位置不固定）  递归处理左右两段   暴力做法：取两个数组  过于暴力，不予展示  优美做法：取两个指针12345678910111213void quick_sort(int q[], int l, int r)&amp;#123;    if(l &gt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基础算法">
 <meta property="og:url" content="https://www.xiaoluoxiaorao.top/2022/04/10/algirthm-base/index.html">
 <meta property="og:site_name" content="学习记录">
-<meta property="og:description" content="基础算法排序一. 快速排序–基于分治1.确定分界点 l~r区间随便取一个值x2.调整区间（把整个区间分成左右两段，左边小于等于x，右边大于等于x，x的位置不固定）3.递归处理左右两段  暴力做法：取两个数组   优美做法：取两个指针  1234567891011121314void quick_sort(int q[], int l, int r)&amp;#123;    if(l &gt;&#x3D; r) r">
+<meta property="og:description" content="基础算法排序一. 快速排序–基于分治  确定分界点 l~r区间随便取一个值x 调整区间（把整个区间分成左右两段，左边小于等于x，右边大于等于x，x的位置不固定）  递归处理左右两段   暴力做法：取两个数组  过于暴力，不予展示  优美做法：取两个指针12345678910111213void quick_sort(int q[], int l, int r)&amp;#123;    if(l &gt;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-10T13:42:32.000Z">
-<meta property="article:modified_time" content="2022-04-11T08:16:08.588Z">
+<meta property="article:modified_time" content="2022-04-11T17:06:05.759Z">
 <meta property="article:author" content="luomou">
 <meta property="article:tag" content="算法学习">
 <meta name="twitter:card" content="summary">
@@ -185,22 +185,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h2><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>一. 快速排序–基于分治<br>1.确定分界点 <code>l~r区间随便取一个值x</code><br>2.<strong>调整区间（把整个区间分成左右两段，左边小于等于x，右边大于等于x，x的位置不固定）</strong><br>3.递归处理左右两段</p>
-<blockquote>
-<p>暴力做法：取两个数组</p>
-</blockquote>
-<blockquote>
-<p>优美做法：取两个指针</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">quick_sort</span><span class="params">(<span class="type">int</span> q[], <span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l &gt;= r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="type">int</span> i = l <span class="number">-1</span>, j = r + <span class="number">1</span>, x=q[i + j &gt;&gt; <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">while</span>(i &lt; j)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span> i++; <span class="keyword">while</span> &#123;x &gt; q[i]&#125;;</span><br><span class="line">        <span class="keyword">do</span> j--; <span class="keyword">while</span> &#123;x &lt; q[j]&#125;;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; j) &#123;<span class="built_in">swap</span>(q[i], q[j])&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">quick_sort</span>(q, l, j);</span><br><span class="line">    <span class="built_in">quick_sort</span>(q, j+<span class="number">1</span>, r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>二. 归并排序(稳定)–基于分治<br>1.以中间点为分界点来分，分成左右两边 <code>mid=(l+r)/2</code><br>2.递归排序 <code>left and right</code><br>3.归并 <strong>合二为一</strong>  </p>
+        <h2 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h2><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>一. 快速排序–基于分治</p>
+<ol>
+<li>确定分界点 <code>l~r区间随便取一个值x</code></li>
+<li><strong>调整区间（把整个区间分成左右两段，左边小于等于x，右边大于等于x，x的位置不固定）</strong> </li>
+<li>递归处理左右两段</li>
+</ol>
 <ul>
-<li>其实是一种双指针算法</li>
+<li>暴力做法：取两个数组</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<p><em>过于暴力，不予展示</em></p>
+<ul>
+<li>优美做法：取两个指针<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">quick_sort</span><span class="params">(<span class="type">int</span> q[], <span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l &gt;= r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="type">int</span> i = l <span class="number">-1</span>, j = r + <span class="number">1</span>, x=q[i + j &gt;&gt; <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">while</span>(i &lt; j)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span> i++; <span class="keyword">while</span> &#123;x &gt; q[i]&#125;;</span><br><span class="line">        <span class="keyword">do</span> j--; <span class="keyword">while</span> &#123;x &lt; q[j]&#125;;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; j) &#123;<span class="built_in">swap</span>(q[i], q[j])&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">quick_sort</span>(q, l, j);</span><br><span class="line">    <span class="built_in">quick_sort</span>(q, j+<span class="number">1</span>, r);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>二. 归并排序(稳定)–基于分治 (<code>其实是一种双指针算法</code>）</p>
+<ol>
+<li>以中间点为分界点来分，分成左右两边 <code>mid=(l+r)/2</code></li>
+<li>递归排序 <code>left and right</code></li>
+<li>归并 <strong>合二为一</strong></li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">merge_sort</span><span class="params">(<span class="type">int</span> q[], <span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l &gt;= r) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">merge_sort</span>(q, l, mid);</span><br><span class="line">    <span class="built_in">merge_sort</span>(q, mid + <span class="number">1</span>, r);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> k = <span class="number">0</span>, i = l,j = mid + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>( i &lt;= mid &amp;&amp; j &lt;= r)</span><br><span class="line">        <span class="keyword">if</span>(q[i] &lt;= q[j]) tmp[ k ++ ] = q[ i ++ ];</span><br><span class="line">        <span class="keyword">else</span> tmp[ k ++ ] = q[ j ++ ];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (i &lt;= mid) tmp[ k ++ ] = q[ i ++ ];</span><br><span class="line">    <span class="keyword">while</span> (j &lt;= r) tmp[ k++] = q[ j ++ ];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = l, j = <span class="number">0</span>; i &lt;= r; i ++, j++) q[i] = tmp[j];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>三. 二分</p>
+<p>三. 二分—边界</p>
+<blockquote>
+<p>在数组中查找某元素，找不到就输出-1，找到了就输出不小于该元素的最小位置和不大于该元素的最大位置。所以，需要写两个二分，一个需要找到&gt;&#x3D;x的第一个数，另一个需要找到&lt;&#x3D;x的最后一个数。</p>
+</blockquote>
+<ul>
+<li>整数二分</li>
+</ul>
+<ol>
+<li><code>mid = (l+r+1)/2</code></li>
+<li>判断mid是否满足性质<code>check(mid)</code><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;....&#125;  <span class="comment">// 检查x是否满足某种性质</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 区间[l, r]被划成[l, mid]和[mid+1, r]时使用</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">bsearch_1</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(l &lt; r)&#123;</span><br><span class="line">        <span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">check</span>(mid)) r = mid;</span><br><span class="line">        <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 区间[l, r]被划成[l, mid - 1]和[mid, r]时使用</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">bsearch_2</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(l &lt; r)&#123;</span><br><span class="line">        <span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">check</span>(mid)) l = mid;</span><br><span class="line">        <span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>浮点数二分</li>
+</ul>
+<ol>
+<li><code>mid = (l+r)/2</code></li>
+<li>判断mid是否满足性质&#96;check(mid)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;....&#125;  <span class="comment">// 检查x是否满足某种性质</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">bsearch_3</span><span class="params">(<span class="type">double</span> l, <span class="type">double</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-6</span>;  <span class="comment">// eps 表示精度，取决于题目对精度的要求</span></span><br><span class="line">    <span class="keyword">while</span>(r - l &gt; eps)&#123;</span><br><span class="line">        <span class="type">double</span> mid = (l + r / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">check</span>(mid)) r = mid;</span><br><span class="line">        <span class="keyword">else</span> l = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> l;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
 
       
 
