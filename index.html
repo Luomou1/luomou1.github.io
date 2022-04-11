@@ -165,7 +165,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/04/10/algirthm-base/">algirthm_base</a>
+      <a class="article-title" href="/2022/04/10/algirthm-base/">基础算法</a>
     </h1>
   
 
@@ -178,14 +178,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h2><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><h4 id="快速排序–基于分治"><a href="#快速排序–基于分治" class="headerlink" title="快速排序–基于分治"></a>快速排序–基于分治</h4><p>1.确定分界点 <code>l~r区间随便取一个值x</code><br>2.<strong>调整区间（把整个区间分成左右两段，左边小于等于x，右边大于等于x，x的位置不固定）</strong><br>3.递归处理左右两段</p>
+        <h2 id="基础算法"><a href="#基础算法" class="headerlink" title="基础算法"></a>基础算法</h2><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>一. 快速排序–基于分治<br>1.确定分界点 <code>l~r区间随便取一个值x</code><br>2.<strong>调整区间（把整个区间分成左右两段，左边小于等于x，右边大于等于x，x的位置不固定）</strong><br>3.递归处理左右两段</p>
 <blockquote>
 <p>暴力做法：取两个数组</p>
 </blockquote>
 <blockquote>
 <p>优美做法：取两个指针</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">quick_sort</span><span class="params">(<span class="type">int</span> q[], <span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(l &gt;= r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="type">int</span> i = l <span class="number">-1</span>, j = r + <span class="number">1</span>, x=q[i + j &gt;&gt; <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">while</span>(i &lt; j)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">do</span> i++; <span class="keyword">while</span> &#123;x &gt; q[i]&#125;;</span><br><span class="line">        <span class="keyword">do</span> j--; <span class="keyword">while</span> &#123;x &lt; q[j]&#125;;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; j) &#123;<span class="built_in">swap</span>(q[i], q[j])&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">quick_sort</span>(q, l, j);</span><br><span class="line">    <span class="built_in">quick_sort</span>(q, j+<span class="number">1</span>, r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>二. 归并排序(稳定)–基于分治<br>1.以中间点为分界点来分，分成左右两边 <code>mid=(l+r)/2</code><br>2.递归排序 <code>left and right</code><br>3.归并 <strong>合二为一</strong>  </p>
+<ul>
+<li>其实是一种双指针算法</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>三. 二分</p>
 
       
 
