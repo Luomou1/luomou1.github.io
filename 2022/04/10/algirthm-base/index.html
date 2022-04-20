@@ -16,7 +16,7 @@
 <meta property="og:description" content="排序一. 快速排序–基于分治  确定分界点 l~r区间随便取一个值x 调整区间（把整个区间分成左右两段，左边小于等于x，右边大于等于x，x的位置不固定）  递归处理左右两段   暴力做法：取两个数组  过于暴力，不予展示  优美做法：取两个指针12345678910111213void quick_sort(int q[], int l, int r)&amp;#123;    if(l &gt;&#x3D; r)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-04-10T13:42:32.000Z">
-<meta property="article:modified_time" content="2022-04-12T04:25:10.672Z">
+<meta property="article:modified_time" content="2022-04-20T16:01:07.167Z">
 <meta property="article:author" content="luomou">
 <meta property="article:tag" content="算法学习">
 <meta name="twitter:card" content="summary">
@@ -214,11 +214,91 @@
 <li><code>mid = (l+r+1)/2</code></li>
 <li>判断mid是否满足性质<code>check(mid)</code><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;....&#125;  <span class="comment">// 检查x是否满足某种性质</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 区间[l, r]被划成[l, mid]和[mid+1, r]时使用</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">bsearch_1</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(l &lt; r)&#123;</span><br><span class="line">        <span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">check</span>(mid)) r = mid;</span><br><span class="line">        <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 区间[l, r]被划成[l, mid - 1]和[mid, r]时使用</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">bsearch_2</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(l &lt; r)&#123;</span><br><span class="line">        <span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">check</span>(mid)) l = mid;</span><br><span class="line">        <span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<p>二. 浮点数二分</p>
+<p>三. 浮点数二分</p>
 <ol>
 <li><code>mid = (l+r)/2</code></li>
-<li>判断mid是否满足性质&#96;check(mid)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;....&#125;  <span class="comment">// 检查x是否满足某种性质</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">bsearch_3</span><span class="params">(<span class="type">double</span> l, <span class="type">double</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-6</span>;  <span class="comment">// eps 表示精度，取决于题目对精度的要求</span></span><br><span class="line">    <span class="keyword">while</span>(r - l &gt; eps)&#123;</span><br><span class="line">        <span class="type">double</span> mid = (l + r / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">check</span>(mid)) r = mid;</span><br><span class="line">        <span class="keyword">else</span> l = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> l;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>判断mid是否满足性质&#96;check(mid)<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">double</span> x)</span></span>&#123;....&#125;  <span class="comment">// 检查x是否满足某种性质</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">double</span> <span class="title">bsearch_3</span><span class="params">(<span class="type">double</span> l, <span class="type">double</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-6</span>;  <span class="comment">// eps 表示精度，取决于题目对精度的要求</span></span><br><span class="line">    <span class="keyword">while</span>(r - l &gt; eps)&#123;</span><br><span class="line">        <span class="type">double</span> mid = (l + r / <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">check</span>(mid)) r = mid;</span><br><span class="line">        <span class="keyword">else</span> l = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> l;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="高精度—-大整数-一般10e6位"><a href="#高精度—-大整数-一般10e6位" class="headerlink" title="高精度—-大整数 一般10e6位"></a>高精度—-大整数 一般10e6位</h3><blockquote>
+<p>高精度加减乘除一般要注意进位问题</p>
+</blockquote>
+</li>
 </ol>
+<p>一. 高精度加法 </p>
+<ol>
+<li><p>每一位都存于数组 一般第0位存个位 <code>如789</code> </p>
+<pre><code>     | 0 | 1 | 2 |
+     | 9 | 8 | 7 | 
+</code></pre>
+</li>
+<li><p>考虑进位 设t为进位 <code>Ai + Bi + t</code></p>
+</li>
+<li><p>注意要去掉前导0</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A + B = C </span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">add</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;A, vector&lt;<span class="type">int</span>&gt; &amp;B)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(A.<span class="built_in">size</span>()&lt; B.<span class="built_in">size</span>()) <span class="keyword">return</span> <span class="built_in">add</span>(B, A);</span><br><span class="line"></span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; C;</span><br><span class="line">    <span class="type">int</span> t = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; A.<span class="built_in">size</span>(); i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        t += A[i];</span><br><span class="line">        <span class="keyword">if</span> (i &lt; B.<span class="built_in">size</span>()) t += B[i];</span><br><span class="line">        C.<span class="built_in">push_back</span>(t % <span class="number">10</span>); <span class="comment">// Ai + Bi + t 模10后的值为该位的值</span></span><br><span class="line">        t /= <span class="number">10</span>; <span class="comment">//进位</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (t) C.<span class="built_in">push_back</span>(t);</span><br><span class="line">    <span class="keyword">return</span> C;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>二. 高精度减法 </p>
+<ol>
+<li><p>每一位都存于数组 一般第0位存个位 <code>如789</code> </p>
+<pre><code>     | 0 | 1 | 2 |
+     | 9 | 8 | 7 | 
+</code></pre>
+</li>
+<li><p>考虑借位 设t为借位 <code>Ai - Bi + t</code></p>
+</li>
+<li><p>注意要去掉前导0</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C = A - B,满足 A &gt;= B, A &gt;= 0, B &gt;= 0</span></span><br><span class="line"><span class="function">vecort&lt;<span class="type">int</span>&gt; <span class="title">sub</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;A, vetocr&lt;<span class="type">int</span>&gt; &amp;B)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; C;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n;i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        t = A[i] - t;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; B.<span class="built_in">size</span>()) t -= B[i];</span><br><span class="line">        C.<span class="built_in">push_back</span>((t + <span class="number">10</span>) % <span class="number">10</span>); <span class="comment">// 这里想不通可以举例：8 - 9</span></span><br><span class="line">        <span class="keyword">if</span> (t &lt; <span class="number">0</span>) t = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> t = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (C.<span class="built_in">size</span>() &gt; <span class="number">1</span> &amp;&amp; C.<span class="built_in">back</span>() == <span class="number">0</span>) C.<span class="built_in">pop_back</span>(); <span class="comment">// 去掉前导0</span></span><br><span class="line">    <span class="keyword">return</span> C;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>三. 高精度乘低精度</p>
+</li>
+<li><p>每一位都存于数组 一般第0位存个位 <code>如789</code> </p>
+<pre><code>     | 0 | 1 | 2 |
+     | 9 | 8 | 7 | 
+</code></pre>
+</li>
+<li><p>考虑进位</p>
+</li>
+<li><p>注意要去掉前导0</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C = A * b, A &gt;= 0, b &gt;= 0</span></span><br><span class="line"></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">mul</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;A, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; C;</span><br><span class="line">    <span class="type">int</span> t = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; A.<span class="built_in">size</span>() || t; i ++) <span class="comment">//i &lt; A.size() || t，是因为乘法可能会产生更多位数</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(i &lt; A.<span class="built_in">size</span>()) t += A[i] * b;</span><br><span class="line">        C.<span class="built_in">push_back</span>(t % <span class="number">10</span>);</span><br><span class="line">        t /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (C.<span class="built_in">size</span>() &gt; <span class="number">1</span> &amp;&amp; C.<span class="built_in">back</span>() == <span class="number">0</span>) C.<span class="built_in">pop_back</span>(); <span class="comment">// 去掉前导0</span></span><br><span class="line">    <span class="keyword">return</span> C;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>四. 高精度除低精度</p>
+<ol>
+<li><p>每一位都存于数组 一般第0位存个位 <code>如789</code> </p>
+<pre><code>     | 0 | 1 | 2 |
+     | 9 | 8 | 7 | 
+</code></pre>
+</li>
+<li><p>考虑余数</p>
+</li>
+<li><p>注意要去掉前导0</p>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// A/b = C...r, A &gt;=0, b &gt; 0</span></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">mul</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;A, <span class="type">int</span> b, <span class="type">int</span> &amp;r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; C;</span><br><span class="line">    r = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = A.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i --) <span class="comment">//数是逆序存储，除法需要正序处理</span></span><br><span class="line">    &#123;</span><br><span class="line">        r = r * <span class="number">10</span> + A[i];</span><br><span class="line">        C.<span class="built_in">push_back</span>(r / b);</span><br><span class="line">        r %= b;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">reverse</span>(C.<span class="built_in">begin</span>(), C.<span class="built_in">end</span>());</span><br><span class="line">    <span class="keyword">while</span> (C.<span class="built_in">size</span>() &gt; <span class="number">1</span> &amp;&amp; C.<span class="built_in">back</span>() == <span class="number">0</span>) C.<span class="built_in">pop_back</span>(); <span class="comment">// 去掉前导0</span></span><br><span class="line">    <span class="keyword">return</span> C;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>一. 一维前缀和–一般下标从一开始</p>
+<blockquote>
+<p>前缀和 a1 + a2 +…+ an </p>
+<p>前缀和数组 S[i] &#x3D; a[1] + a[2] +…+ a[i]</p>
+</blockquote>
+<p>1.如何求S[i] </p>
+<ul>
+<li>递归 <code>S[i] = S[i - 1] + a[i]</code></li>
+</ul>
+<p>2.作用：求部分和</p>
+<ul>
+<li><code>[l, r]</code>这一部分和 <code>S[r] - S[l - 1] = a[l] + ... + a[r]</code></li>
+</ul>
+<p>二. 二维前缀和–一般下标从一开始</p>
+<ul>
+<li><code>S[i, j] = 第i行j列格子左上部分所有元素的和</code><br>以<code>(x1, y1)</code>为左上角，<code>(x2, y2)</code>为右下角的子矩阵的和为：<br><code>S[x2, y2] - S[x1 - 1, y2] - S[x2, y1 - 1] + S[x1 - 1, y1 -1]</code></li>
+</ul>
+<h3 id="差分–前缀和的逆运算"><a href="#差分–前缀和的逆运算" class="headerlink" title="差分–前缀和的逆运算"></a>差分–前缀和的逆运算</h3><blockquote>
+<p>已知  <code>a1 + a2 + a3 + ... + ai</code></p>
+<p>构造  <code>b1 + b2 + b3 + ... + bi</code></p>
+<p>使得 <code>ai = b1 + b2 + b3 + ... + bi</code></p>
+<p><code>b</code>称为<code>a</code>差分， <code>a</code>称为<code>b</code>的前缀和</p>
+</blockquote>
+<p>一. 一维差分 </p>
+<p>给整个<code>[l, r]</code> 区间中的每个数加上<code>c</code>:<code>B[l] += c, B[r + 1] -= c</code></p>
+<p>二. 二维差分</p>
+<p>给以<code>(x1, y1)</code>为左上角, <code>(x2, y2)</code>为右下角的子矩阵中的所有元素加上<code>c</code>: <code>S[x1, y1] += c, S[x2 + 1, y1] -= c, S[x1, y2 + 1] -= c, S[x2 + 1, y2 + 1] += c</code></p>
 
       
 
